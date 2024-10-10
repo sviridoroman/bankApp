@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class BankExceptionHandler {
     
     @ExceptionHandler(BaseException.class)
-    public ResponseEntity<ErrorResponse> handleException(BaseException ex, String message) {
-        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), message);
+    public ResponseEntity<ErrorResponse> handleException(BaseException ex) {
+        ErrorResponse errorResponse = new ErrorResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 }

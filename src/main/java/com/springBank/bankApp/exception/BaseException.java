@@ -5,12 +5,12 @@ import lombok.Getter;
 @Getter
 public class BaseException extends RuntimeException{
     
-    public BaseException(ExceptionEnum exceptionEnum) {
-        super(exceptionEnum.getMessage());
+    public BaseException(ExceptionEnum exception) {
+        super(exception.getMessage());
 
     }
 
-    public BaseException(ExceptionEnum exceptionEnum, String message) {
+    public BaseException(ExceptionEnum exception, String message) {
         super(message);
     }
 }

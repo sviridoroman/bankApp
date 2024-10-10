@@ -11,8 +11,8 @@ public enum ExceptionEnum {
     BAD_REQUEST(HttpStatus.BAD_REQUEST,
 "некорректный запрос"),
     INCORRECT_PINCODE(HttpStatus.BAD_REQUEST,"не верный пин-код"),
-    ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND,"счет не найден");
-
+    ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND,"счет не найден"),
+    USer_NOT_FOUND(HttpStatus.NOT_FOUND,"пользователь не найден");
     private final HttpStatus httpStatus;
 
     private final String message;

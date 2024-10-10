@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.springBank.bankApp.enums.OperationType;
 import com.springBank.bankApp.exception.AccountNotFoundException;
+import com.springBank.bankApp.exception.BaseException;
 import com.springBank.bankApp.exception.ExceptionEnum;
 import com.springBank.bankApp.exception.IncorrectPinException;
 import com.springBank.bankApp.model.BankAccount;
@@ -28,7 +29,7 @@ public class BankAccountServiceImpl implements BankAccountService{
     private Client findClient(String accountName) {
         Optional<Client> client = clientRepository.findOneByName(accountName);
         if (!client.isPresent()) {
-            throw new AccountNotFoundException(ExceptionEnum.ACCOUNT_NOT_FOUND.getMessage());
+            throw new BaseException(ExceptionEnum.USer_NOT_FOUND);
         }
         return client.get();
     }
@@ -37,7 +38,7 @@ public class BankAccountServiceImpl implements BankAccountService{
         BankAccount bankAccount = bankAccountRepository.findById(accountId).get();
         if (bankAccount.getPin() == pin)
             return true;
-        else return false;
+         else throw new BaseException(ExceptionEnum.INCORRECT_PINCODE);
     }
 
     private BankAccount findAccountById(String accountId) {
