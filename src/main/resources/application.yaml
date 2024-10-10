@@ -1,0 +1,10 @@
+spring:
+    application:
+        name: "bankApp"
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: ${DB_URL:jdbc:postgresql://localhost:5432/bank_db}
+        username: ${DB_USER:postgres}
+        password: ${DB_PASSWORD:123}
+        hikari:
+            maximum-pool-size: 10
